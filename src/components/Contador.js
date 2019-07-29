@@ -6,7 +6,14 @@ export default class Contador extends Component {
     numero: this.props.numeroInicial
   }
 
-  maisUm = () => {
+  constructor(props) {
+    super(props)
+    // Passando o this da instância de Contador e fazendo um bind, ou seja
+    // apontando para o this que foi passado no contexto da função
+    this.maisUm = this.maisUm.bind(this)
+  }
+
+  maisUm() {
     this.setState({ numero: this.state.numero + 1 })
   }
 
